@@ -80,8 +80,10 @@ class Game extends React.Component {
   handleClick(col, row) {
     // historyを複製（戻って修正した場合、古い未来のデータは捨てる）
     const history = this.state.history.slice(0, this.state.stepNumber + 1);
+    console.log('history >> ', history)
     // historyの最新（現在）の盤面をcurrentに代入
     const current = history[history.length - 1];
+    console.log('current >> ', current)
     // currentのsquares(盤面状態)を複製
     // const squares = current.squares.slice();
     const squares = current.squares.map(ary => ary.slice());
@@ -94,7 +96,7 @@ class Game extends React.Component {
 
     this.setState({
       // historyの最後に更新後の盤面と配置した座標のデータを追加する
-      history: this.state.history.concat({
+      history: history.concat({
         squares: squares,
         coordinate: {
           col: col,
