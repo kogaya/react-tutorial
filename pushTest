@@ -8,3 +8,5 @@ change github config
 add e-mail global
 
 ` $ git config --global user.email [hoga@mail.com] `
+
+remove []
